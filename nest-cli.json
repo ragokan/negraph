@@ -6,6 +6,6 @@
     "spec": false
   },
   "compilerOptions": {
-    "plugins": ["@nestjs/graphql"]
+    "plugins": ["@nestjs/graphql", "@nestjs/swagger"]
   }
 }
