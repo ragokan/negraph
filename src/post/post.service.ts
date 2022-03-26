@@ -6,14 +6,14 @@ import { Post } from "./entities/post.entity";
 @Injectable()
 export class PostService {
   create(createPostDto: CreatePostDto): Post {
-    return { id: 1, ...createPostDto, comments: [] };
+    return { id: 1, ...createPostDto };
   }
 
   findAll(): Post[] {
     return [
-      { id: 1, title: "Hey", comments: [] },
-      { id: 2, title: "Ho", comments: [] },
-      { id: 3, title: "Let's go", comments: [] },
+      { id: 1, title: "Hey" },
+      { id: 2, title: "Ho" },
+      { id: 3, title: "Let's go" },
     ];
   }
 
