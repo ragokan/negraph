@@ -1,6 +1,9 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
+import { Message } from "./message/entities/message.entity";
+import { MessageModule } from "./message/message.module";
+import { PostModule } from "./post/post.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -13,7 +16,9 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api", app, document);
+  SwaggerModule.setup("api", app, document, {
+    customSiteTitle: "Negraph App",
+  });
 
   app.enableCors({
     origin: "*",

@@ -3,6 +3,7 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { PostModule } from "./post/post.module";
 import { ConfigModule } from "@nestjs/config";
+import { MessageModule } from './message/message.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { ConfigModule } from "@nestjs/config";
       envFilePath: "./env",
     }),
     PostModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
