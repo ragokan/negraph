@@ -29,6 +29,7 @@ specifiers:
   prettier: ^2.3.2
   reflect-metadata: ^0.1.13
   rimraf: ^3.0.2
+  run-script-webpack-plugin: ^0.0.11
   rxjs: ^7.2.0
   socket.io: ^4.4.1
   source-map-support: ^0.5.20
@@ -39,6 +40,8 @@ specifiers:
   ts-node: ^10.0.0
   tsconfig-paths: ^3.10.1
   typescript: ^4.3.5
+  webpack: ^5.70.0
+  webpack-node-externals: ^3.0.0
 
 dependencies:
   '@nestjs/apollo': 10.0.8_28073b87c0fd4d0366530a0d4ec7d208
@@ -74,13 +77,16 @@ devDependencies:
   eslint-plugin-prettier: 4.0.0_68edcf5670f37721baf5d2cac6124e4d
   jest: 27.5.1_ts-node@10.7.0
   prettier: 2.6.0
+  run-script-webpack-plugin: 0.0.11
   source-map-support: 0.5.21
   supertest: 6.2.2
   ts-jest: 27.1.3_60149d457e34ffba7d4e845dde6a1263
-  ts-loader: 9.2.8_typescript@4.6.2
+  ts-loader: 9.2.8_typescript@4.6.2+webpack@5.70.0
   ts-node: 10.7.0_045cabcbf8818eda83522fe731c87088
   tsconfig-paths: 3.14.1
   typescript: 4.6.2
+  webpack: 5.70.0
+  webpack-node-externals: 3.0.0
 
 packages:
 
@@ -4955,6 +4961,11 @@ packages:
     dependencies:
       queue-microtask: 1.2.3
 
+  /run-script-webpack-plugin/0.0.11:
+    resolution: {integrity: sha512-QmuBhiqBPmhQLpO5vMBHVTAGyoPBnrCM5gQ3IzgieiImBXiBbXcIv4kysCT1gilFNFxQk22oKQfiIhWbT/zXCw==}
+    engines: {node: '>=12'}
+    dev: true
+
   /rxjs/6.6.7:
     resolution: {integrity: sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==}
     engines: {npm: '>=2.0.0'}
@@ -5504,7 +5515,7 @@ packages:
       yargs-parser: 20.2.9
     dev: true
 
-  /ts-loader/9.2.8_typescript@4.6.2:
+  /ts-loader/9.2.8_typescript@4.6.2+webpack@5.70.0:
     resolution: {integrity: sha512-gxSak7IHUuRtwKf3FIPSW1VpZcqF9+MBrHOvBp9cjHh+525SjtCIJKVGjRKIAfxBwDGDGCFF00rTfzB1quxdSw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -5516,6 +5527,7 @@ packages:
       micromatch: 4.0.5
       semver: 7.3.5
       typescript: 4.6.2
+      webpack: 5.70.0
     dev: true
 
   /ts-node/10.7.0_045cabcbf8818eda83522fe731c87088:

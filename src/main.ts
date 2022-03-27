@@ -1,9 +1,8 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
-import { Message } from "./message/entities/message.entity";
-import { MessageModule } from "./message/message.module";
-import { PostModule } from "./post/post.module";
+
+declare const module: any;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -24,6 +23,11 @@ async function bootstrap() {
     origin: "*",
   });
 
-  await app.listen(8000);
+  await app.listen(3000);
+
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
 }
 bootstrap();
