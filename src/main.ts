@@ -23,11 +23,11 @@ async function bootstrap() {
     origin: "*",
   });
 
-  await app.listen(3000);
+  await app.listen(8000);
 
   if (module.hot) {
     module.hot.accept();
-    module.hot.dispose(() => app.close());
+    module.hot.dispose(app.close);
   }
 }
 bootstrap();
