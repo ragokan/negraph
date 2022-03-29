@@ -2,8 +2,6 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 
-declare const module: any;
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -12,6 +10,7 @@ async function bootstrap() {
     .setDescription("The documentation of the Negraph App!")
     .setVersion("1.0")
     .addTag("negraph")
+
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
@@ -19,15 +18,9 @@ async function bootstrap() {
     customSiteTitle: "Negraph App",
   });
 
-  app.enableCors({
-    origin: "*",
-  });
+  app.enableCors({ origin: ["*"] });
 
   await app.listen(8000);
-
-  if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(app.close);
-  }
 }
+
 bootstrap();
