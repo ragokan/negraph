@@ -7,6 +7,7 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+// Just to start things
 generator nestjsDto {
   provider                        = "prisma-generator-nestjs-dto"
   output                          = "../src"
