@@ -8,6 +8,7 @@ import { MessageService } from "./message.service";
 import { CreateMessageDto } from "./dto/create-message.dto";
 import { UpdateMessageDto } from "./dto/update-message.dto";
 import { Socket } from "socket.io";
+import { ConnectMessageDto } from "./dto/connect-message.dto";
 
 @WebSocketGateway(8001, {
   cors: { origin: "*" },
@@ -36,8 +37,14 @@ export class MessageGateway {
   }
 
   @SubscribeMessage("updateMessage")
-  update(@MessageBody() updateMessageDto: UpdateMessageDto) {
-    return this.messageService.update(updateMessageDto.id, updateMessageDto);
+  update(
+    @MessageBody()
+    dto: {
+      connectBody: ConnectMessageDto;
+      updateBody: UpdateMessageDto;
+    }
+  ) {
+    return this.messageService.update(dto.connectBody.id, dto.updateBody);
   }
 
   @SubscribeMessage("removeMessage")

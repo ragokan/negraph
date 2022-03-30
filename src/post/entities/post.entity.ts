@@ -1,6 +1,9 @@
-import { Post as IPost } from "@prisma/client";
+import { Message } from "../../message/entities/message.entity";
 
-export class Post implements IPost {
+export class Post {
   id: number;
   title: string;
+  messages?: Message[];
+  createdAt: Date;
+  updatedAt: Date;
 }

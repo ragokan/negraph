@@ -1,4 +1,8 @@
+import { Post } from "../../post/entities/post.entity";
+
 export class Message {
   id: number;
-  data: string;
+  text: string;
+  post?: Post;
+  postId: number;
 }

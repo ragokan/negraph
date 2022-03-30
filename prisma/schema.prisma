@@ -9,19 +9,28 @@ datasource db {
 
 generator nestjsDto {
   provider                        = "prisma-generator-nestjs-dto"
-  output                          = "../src/common/generated"
+  output                          = "../src"
   outputToNestJsResourceStructure = "true"
-  exportRelationModifierClasses   = "true"
-  reExport                        = "true"
-  createDtoPrefix                 = "Create"
-  updateDtoPrefix                 = "Update"
-  dtoSuffix                       = "Dto"
-  entityPrefix                    = ""
-  entitySuffix                    = ""
   fileNamingStyle                 = "kebab"
 }
 
 model Post {
-  id    Int    @id @default(autoincrement())
-  title String
+  id       Int       @id @default(autoincrement())
+  title    String
+  messages Message[]
+
+  /// @DtoReadOnly
+  createdAt DateTime @default(now())
+  /// @DtoReadOnly
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id   Int    @id @default(autoincrement())
+  text String
+
+  /// @DtoRelationRequired
+  /// @DtoRelationCanCreateOnCreate
+  post   Post? @relation(fields: [postId], references: [id])
+  postId Int
 }
