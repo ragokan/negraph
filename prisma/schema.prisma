@@ -7,6 +7,20 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../src/common/generated"
+  outputToNestJsResourceStructure = "true"
+  exportRelationModifierClasses   = "true"
+  reExport                        = "true"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  dtoSuffix                       = "Dto"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  fileNamingStyle                 = "kebab"
+}
+
 model Post {
   id    Int    @id @default(autoincrement())
   title String
