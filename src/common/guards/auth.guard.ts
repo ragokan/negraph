@@ -21,9 +21,9 @@ class AuthGuard implements CanActivate {
 
 export const Auth =
   (): ClassDecorator & MethodDecorator =>
-  (...args: any[]) => {
+  (...args: [constructor: Function]) => {
     {
-      UseGuards(AuthGuard)(args[0], args[1], args[2]);
-      ApiBearerAuth()(args[0], args[1], args[2]);
+      UseGuards(AuthGuard)(...args);
+      ApiBearerAuth()(...args);
     }
   };
