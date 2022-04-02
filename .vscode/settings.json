@@ -1,0 +1,15 @@
+{
+  "files.exclude": {
+    "**/dist": true,
+    "**/.env": true,
+    "**/nest-cli.json": true,
+    "**/tsconfig*.json": true,
+    "**/__.eslintrc.js": true
+  },
+  "search.exclude": {
+    "**/.env": false,
+    "**/nest-cli.json": false,
+    "**/tsconfig*.json": false,
+    "**/__.eslintrc.js": false
+  }
+}
