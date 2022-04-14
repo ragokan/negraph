@@ -24,7 +24,9 @@ export class PostService {
   }
 
   update(id: number, updatePostDto: UpdatePostDto) {
-    return `This action updates a #${id} post with ${JSON.stringify(updatePostDto)} `;
+    return `This action updates a #${id} post with ${JSON.stringify(
+      updatePostDto
+    )} `;
   }
 
   remove(id: number) {

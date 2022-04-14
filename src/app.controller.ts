@@ -9,8 +9,6 @@ export class AppController {
 
   /**
    * Get hello message!
-   *
-   * @returns {string}
    */
   @Get()
   getHello(): string {

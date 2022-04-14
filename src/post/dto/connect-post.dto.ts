@@ -1,5 +1,3 @@
-
-  export class ConnectPostDto {
-    id: number;
-  }
-  
+export class ConnectPostDto {
+  id: number;
+}

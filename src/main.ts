@@ -16,7 +16,9 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api-docs", app, document, { customSiteTitle: "Negraph App" });
+  SwaggerModule.setup("api-docs", app, document, {
+    customSiteTitle: "Negraph App",
+  });
 
   // Database
   const prismaService = app.get(PrismaService);

@@ -8,12 +8,12 @@ datasource db {
 }
 
 // Just to start things
-generator nestjsDto {
-  provider                        = "prisma-generator-nestjs-dto"
-  output                          = "../src"
-  outputToNestJsResourceStructure = "true"
-  fileNamingStyle                 = "kebab"
-}
+// generator nestjsDto {
+//   provider                        = "prisma-generator-nestjs-dto"
+//   output                          = "../src"
+//   outputToNestJsResourceStructure = "true"
+//   fileNamingStyle                 = "kebab"
+// }
 
 model Post {
   id       Int       @id @default(autoincrement())
